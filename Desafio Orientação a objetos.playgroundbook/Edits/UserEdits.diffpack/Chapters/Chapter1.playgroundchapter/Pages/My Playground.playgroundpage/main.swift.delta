@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Diff</key>
+	<array>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>//Primeiro projeto - Paradigma de Programação Orientada a Objetos 
+// E num para categorizar os livros
+enum Categoria: String {
+    case Ficcao, Ciencia, Historia, AutoAjuda, Infantis
+}
+
+class Livro {
+    var titulo: String
+    var autor: String
+    var categoria: Categoria
+    
+    init(titulo: String, autor: String, categoria: Categoria) {
+        self.titulo = titulo
+        self.autor = autor
+        self.categoria = categoria
+    }
+}
+
+class Biblioteca {
+    var acervo: [Livro] = []
+    
+    func adicionarLivro(livro: Livro) {
+        acervo.append(livro)
+    }
+    
+    func listarLivrosPorCategoria(categoria: Categoria) -&gt; [Livro] {
+        return acervo.filter { $0.categoria == categoria }
+    }
+}
+
+let livro1 = Livro(titulo: "A Arte da Guerra", autor: "Sun Tzu", categoria: .Historia)
+let livro2 = Livro(titulo: "O Pequeno Príncipe", autor: "Antoine de Saint-Exupéry", categoria: .Infantis)
+
+let biblioteca = Biblioteca()
+biblioteca.adicionarLivro(livro: livro1)
+biblioteca.adicionarLivro(livro: livro2)
+
+let livrosInfantis = biblioteca.listarLivrosPorCategoria(categoria: .Infantis)
+for livro in livrosInfantis {
+    print(livro.titulo)
+}
+
+//Segundo programa - Programação Orientada a Objetos 
+
+protocol Veiculo {
+    var velocidadeMaxima: Double { get }
+    func mover()
+}
+
+struct Aviao: Veiculo {
+    var velocidadeMaxima = 900.0 
+    
+    func mover() {
+        print("O avião está voando a \(velocidadeMaxima) km/h!")
+    }
+}
+
+struct Helicoptero: Veiculo {
+    var velocidadeMaxima = 250.0 // em km/h
+    
+    func mover() {
+        print("O helicóptero está voando a \(velocidadeMaxima) km/h!")
+    }
+}
+
+func simuladorDeVoo(veiculo: Veiculo) {
+    print("Iniciando simulação de voo...")
+    veiculo.mover()
+}
+
+let aviao = Aviao()
+let helicoptero = Helicoptero()
+
+simuladorDeVoo(veiculo: aviao) 
+simuladorDeVoo(veiculo: helicoptero)
+</string>
+			<key>ModifiedRange</key>
+			<string>{1, 1854}</string>
+			<key>OriginalContent</key>
+			<string></string>
+			<key>OriginalRange</key>
+			<string>{1, 0}</string>
+		</dict>
+	</array>
+	<key>File</key>
+	<string>Chapters/Chapter1.playgroundchapter/Pages/My Playground.playgroundpage/main.swift</string>
+</dict>
+</plist>
